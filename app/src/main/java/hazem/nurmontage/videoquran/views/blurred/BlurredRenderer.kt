@@ -137,12 +137,17 @@ fun BlurredImageView.calculateTextSize(
  * Original: BlurredImageView.java lines 2204–2305
  */
 fun BlurredImageView.onDrawExt(canvas: Canvas) {
+    // BUG-V01 fix: use save-count pattern instead of save()/restore() inside try.
+    // If any line between save() and restore() throws (NPE on rectFProgress!!,
+    // selectTool!!, iViewCallback!!, entity_select!!), the catch swallowed it and
+    // restore() was skipped — canvas save-count grew by 1 per dropped frame until
+    // IllegalStateException (save count > 255) crashed the view.
+    val saveCount = canvas.save()
     try {
         if (this.isNotDraw) {
             return
         }
 
-        canvas.save()
         canvas.translate(this.mDrawingTranslationX, this.mDrawingTranslationY)
         canvas.clipRect(0, 0, this.mCanvas_width, this.mCanvas_height)
         canvas.drawColor(ViewCompat.MEASURED_STATE_MASK)
@@ -246,17 +251,19 @@ fun BlurredImageView.onDrawExt(canvas: Canvas) {
 
         // Billing removed — no watermark for any user
 
-        canvas.restore()
-
-        if (isPlaying() && this.iViewCallback != null) {
-            this.iViewCallback!!.onDrawFinish()
-        }
+        // BUG-V02 fix: removed duplicate onDrawFinish() call from inside try.
+        // `finally` block below already invokes it, so calling it here as well
+        // caused the host to receive the callback TWICE per frame while playing,
+        // which double-stepped playback state (e.g. frame counters, audio sync).
     } catch (e: Exception) {
         e.printStackTrace()
         if (!isPlaying() || this.iViewCallback == null) {
             return
         }
     } finally {
+        // BUG-V01 fix: always restore the canvas to the saved count, even if
+        // an exception was thrown mid-draw. Prevents save-count leak.
+        try { canvas.restoreToCount(saveCount) } catch (_: Throwable) {}
         if (isPlaying() && this.iViewCallback != null) {
             this.iViewCallback!!.onDrawFinish()
         }

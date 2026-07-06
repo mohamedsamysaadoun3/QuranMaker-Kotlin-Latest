@@ -154,10 +154,14 @@ class CropView @JvmOverloads constructor(
         this.mWidth = mCanvasWidth
         this.mHeight = bmp.height.toFloat()
 
-        val cropScale = mCanvasWidth / mWidth
-        val m = Matrix()
-        m.postScale(cropScale, cropScale)
-        m.postTranslate(0f, mDrawingY)
+        // BUG-V04 fix: (a) divisor must be bmp.width (not mWidth which was just
+        // set to mCanvasWidth, making cropScale trivially 1.0). (b) the computed
+        // matrix `m` was never assigned to `this.matrix`, so onDraw kept using a
+        // stale matrix from init or a previous setBitmap() call.
+        val cropScale = if (bmp.width > 0) mCanvasWidth / bmp.width.toFloat() else 1f
+        matrix.reset()
+        matrix.postScale(cropScale, cropScale)
+        matrix.postTranslate(0f, mDrawingY)
 
         invalidate()
 

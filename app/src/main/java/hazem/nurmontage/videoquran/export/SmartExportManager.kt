@@ -68,7 +68,21 @@ class SmartExportManager(context: Context) {
     @Volatile
     private var isCancelled = false
 
+    // BUG-X22 fix: callback was not @Volatile. Set in startExport (caller thread),
+    // read in FFmpeg callbacks (FFmpeg thread). Without @Volatile the write may
+    // not be visible to the callback thread.
+    @Volatile
     private var callback: ExportCallback? = null
+
+    // BUG-X17 fix: track the current FFmpeg session ID so cancel() can target
+    // it instead of calling the global FFmpegKit.cancel() (which kills every
+    // session in the process, including unrelated audio decode / codec checks).
+    @Volatile
+    private var currentSessionId: Long = -1L
+
+    // BUG-X05 fix: total expected duration (ms) — used by StatisticsCallback to
+    // compute a meaningful progress percentage for videos longer than 10s.
+    private var totalDurationMs: Long = 0L
 
     init {
         createNotificationChannel()
@@ -108,16 +122,24 @@ class SmartExportManager(context: Context) {
      * 3. On completion: shows 100% notification, auto-dismisses after 3 seconds
      * 4. On failure: cancels the notification and reports the error
      *
-     * Progress calculation: `percent = min(99, timeMs / 100)`.
-     * This assumes the total duration is known and the time position
-     * reported by FFmpeg is in milliseconds. The 99% cap ensures the
+     * Progress calculation: `percent = min(99, timeMs * 100 / totalDurationMs)`.
+     * Caller must supply the expected total duration so the percentage is
+     * meaningful for videos longer than 10 seconds. The 99% cap ensures the
      * notification never shows 100% before the actual completion callback.
      *
-     * @param ffmpegCommand The FFmpeg command string to execute
-     * @param outputPath    The expected output file path (reported on success)
-     * @param cb            Callback for export events
+     * @param ffmpegCommand     The FFmpeg command string to execute
+     * @param outputPath        The expected output file path (reported on success)
+     * @param totalDurationMs   Total expected output duration in milliseconds
+     *                          (used for progress percentage). If 0, falls back
+     *                          to the legacy 10-second assumption.
+     * @param cb                Callback for export events
      */
-    fun startExport(ffmpegCommand: String, outputPath: String, cb: ExportCallback) {
+    fun startExport(
+        ffmpegCommand: String,
+        outputPath: String,
+        totalDurationMs: Long,
+        cb: ExportCallback
+    ) {
         if (isExporting) {
             Log.w(TAG, "Export already in progress")
             return
@@ -125,13 +147,19 @@ class SmartExportManager(context: Context) {
         this.callback = cb
         this.isExporting = true
         this.isCancelled = false
+        this.totalDurationMs = totalDurationMs
+        // BUG-X17 fix: capture session ID so cancel() can target it instead of
+        // calling the global FFmpegKit.cancel() which kills every other session
+        // in the process (audio decode, codec check, etc.).
+        currentSessionId = -1L
         showNotification(0, "Preparing export...")
 
-        FFmpegKit.executeAsync(
+        val session = FFmpegKit.executeAsync(
             ffmpegCommand,
             FFmpegSessionCompleteCallback { session ->
                 // -- Export session completed --
                 isExporting = false
+                currentSessionId = -1L
 
                 val returnCode = session.returnCode
                 val success = ReturnCode.isSuccess(returnCode)
@@ -156,9 +184,14 @@ class SmartExportManager(context: Context) {
             LogCallback { /* Suppress FFmpeg log output */ },
             StatisticsCallback { statistics ->
                 // -- Progress from FFmpeg statistics --
+                // BUG-X05 fix: was `time / 100f` which equals percent ONLY if
+                // total duration is 10000ms. For a 60s export, notification hit
+                // 99% at t=9.9s and stayed pinned for 50s. Now divide by the
+                // actual total duration (falling back to 10s if caller passed 0).
                 val time = statistics.time
                 if (time > 0 && callback != null) {
-                    val percent = minOf(99, (time / 100f).toInt())
+                    val denom = if (totalDurationMs > 0) totalDurationMs else 10_000L
+                    val percent = minOf(99, ((time * 100L) / denom).toInt())
                     mainHandler.post {
                         showNotification(percent, "Exporting... $percent%")
                         callback?.onExportProgress(percent)
@@ -166,21 +199,28 @@ class SmartExportManager(context: Context) {
                 }
             }
         )
+        currentSessionId = session.sessionId
     }
 
     /**
      * Cancel the current export operation.
      *
-     * Sets the [isCancelled] flag and sends a cancel signal to FFmpegKit.
-     * The [ExportCallback.onExportCancelled] will be invoked when the
-     * FFmpeg session completes after the cancellation signal.
+     * Sets the [isCancelled] flag and sends a cancel signal to FFmpegKit
+     * scoped to the current session ID. The [ExportCallback.onExportCancelled]
+     * will be invoked when the FFmpeg session completes after the cancellation
+     * signal.
      *
      * If no export is in progress, the call is silently ignored.
      */
     fun cancel() {
         if (!isExporting) return
         isCancelled = true
-        FFmpegKit.cancel()
+        // BUG-X17 fix: was FFmpegKit.cancel() (global, kills all sessions in the
+        // process). Cancel only the current session.
+        val sid = currentSessionId
+        if (sid > 0) {
+            try { FFmpegKit.cancel(sid) } catch (_: Throwable) {}
+        }
     }
 
     /**

@@ -45,31 +45,28 @@ class QuranReader(private val context: Context) {
         surahNumber: Int,
         ayahNumber: Int
     ): String {
-        var reader: BufferedReader? = null
         try {
-            reader = BufferedReader(
+            BufferedReader(
                 InputStreamReader(
                     context.assets.open("quran/$translationFileName"),
                     StandardCharsets.UTF_8
                 )
-            )
-            val prefix = "$surahNumber|$ayahNumber"
-            var line: String?
-            while (reader.readLine().also { line = it } != null) {
-                if (line!!.startsWith(prefix)) {
-                    return line!!.substring(prefix.length)
+            ).use { reader ->
+                val prefix = "$surahNumber|$ayahNumber"
+                var line: String?
+                while (reader.readLine().also { line = it } != null) {
+                    if (line!!.startsWith(prefix)) {
+                        // BUG-A01 fix: line format is "surah|ayah|text".
+                        // `prefix` is "surah|ayah" (length N); substring(N) would include
+                        // the leading "|". Skip the separator.
+                        return line!!.substring(prefix.length + 1)
+                    }
                 }
             }
-            reader.close()
             return "Aya Not Found !"
         } catch (e: IOException) {
             e.printStackTrace()
             return "Aya Not Found !"
-        } finally {
-            try {
-                reader?.close()
-            } catch (_: IOException) {
-            }
         }
     }
 }

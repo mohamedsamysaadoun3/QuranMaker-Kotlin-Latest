@@ -21,12 +21,23 @@ fun TrackEntityView.onTouchExt(view: View, motionEvent: MotionEvent): Boolean {
         motionEvent.y + paddingTop - mScrollY
     )
     if (motionEvent.pointerCount > 1) return scaleGestureDetector!!.onTouchEvent(motionEvent)
+    // BUG-V03 fix: ACTION_CANCEL must reset the pinch latch too. The original code
+    // only cleared `isScaleListener` on ACTION_UP, so a parent-intercepted gesture
+    // (system gesture, multi-window) ended with ACTION_CANCEL and left the latch
+    // stuck `true` — every subsequent ACTION_DOWN was swallowed, freezing the editor.
     if (isScaleListener) {
-        if (motionEvent.action == MotionEvent.ACTION_UP) isScaleListener = false
+        if (motionEvent.action == MotionEvent.ACTION_UP ||
+            motionEvent.action == MotionEvent.ACTION_CANCEL) {
+            isScaleListener = false
+        }
         return true
     }
     val action = motionEvent.action
-    if (action == MotionEvent.ACTION_UP) {
+    // BUG-V15 fix: cleanup (handler callbacks removal, flag resets) must run on
+    // BOTH ACTION_UP and ACTION_CANCEL. Originally gated inside `if (selectedEntity != null)`
+    // which skipped cleanup if the entity was deleted mid-gesture → stale runnables
+    // fired later and dereferenced a null selectedEntity.
+    if (action == MotionEvent.ACTION_UP || action == MotionEvent.ACTION_CANCEL) {
         eventY = 0.0f
         eventX = 0.0f
         signeY = -1.0f
@@ -37,6 +48,14 @@ fun TrackEntityView.onTouchExt(view: View, motionEvent: MotionEvent): Boolean {
         isDetectChange = false
         isPassScroll = true
         isAutoMove = false
+        // Always remove pending runnables, even if selectedEntity is null.
+        autoMoveRunnable?.let { autoScrollHandler?.removeCallbacks(it) }
+        autoScrollRunnable?.let { autoScrollHandler?.removeCallbacks(it) }
+        if (action == MotionEvent.ACTION_CANCEL) {
+            isMove = false
+            isAutoScroll = false
+            return true
+        }
         if (selectedEntity != null) {
             if (isMove) {
                 current_cursur_position = (round(currentPosition * 1000.0f / second_in_screen * -1.0f)).toInt()

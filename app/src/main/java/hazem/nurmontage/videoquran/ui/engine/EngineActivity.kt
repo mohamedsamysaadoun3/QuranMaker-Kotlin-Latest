@@ -306,6 +306,24 @@ class EngineActivity : BaseActivity() {
         releaseWakeLock()
         clearCallback()
         pausePlayer()
+        // BUG-E03/E08/E09 fix: release every MediaPlayer still alive. The original
+        // code only paused them, leaking native AudioTrack/codec resources for every
+        // audio entity created during the editing session.
+        try {
+            for (entityAudio in trackViewEntity.entityListAudio) {
+                try { entityAudio.mediaPlayer?.release() } catch (_: Throwable) {}
+                entityAudio.mediaPlayer = null
+            }
+        } catch (_: Throwable) {}
+        try { mPlayer?.release() } catch (_: Throwable) {}
+        @Suppress("UNUSED_VARIABLE")
+        val _unused = Unit // mPlayer field is val; cannot null-assign here
+        // BUG-E01 fix: shut down the activity-scoped single-thread executor.
+        // Without this the worker thread (non-daemon) keeps running and any in-flight
+        // Runnable retains a reference to the destroyed Activity via captured fields.
+        try {
+            (executor as? java.util.concurrent.ExecutorService)?.shutdownNow()
+        } catch (_: Throwable) {}
     }
 
     override fun attachBaseContext(newBase: Context) {
@@ -313,6 +331,7 @@ class EngineActivity : BaseActivity() {
     }
 
     override fun onRequestPermissionsResult(i: Int, strArr: Array<String>, iArr: IntArray) {
+        super.onRequestPermissionsResult(i, strArr, iArr)
         handleRequestPermissionsResult(i, strArr, iArr)
     }
 }

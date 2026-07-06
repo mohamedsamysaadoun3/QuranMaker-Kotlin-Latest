@@ -1262,21 +1262,24 @@ fun EngineActivity.addAudioRecitersTemplateRunnable(
         while (it.hasNext()) {
             val parse = Uri.parse(it.next())
             val uri = parse.toString()
-            var downloadFile: String?
+            // BUG-E13 fix: the original code had inverted null checks:
+            //   downloadFile = ...!!          // throws NPE on failure
+            //   if (downloadFile == null) { sb.append(... downloadFile!!.replace(...)) }  // NPE inside null check!
+            // The success case (write to concat list) was never executed, so
+            // concat.txt was ALWAYS empty → FFmpeg concat demuxer fails silently.
+            // Also `downloadFile(...)` returns String? — `!!` throws NPE on
+            // network failure. Corrected below to nullable + != null branch.
+            var downloadFile: String? = null
             if (!uri.startsWith("http://") && !uri.startsWith("https://")) {
                 downloadFile = AudioUtils.copyFromUri(this, parse, mTemplate!!.folder_template!!)
-                if (downloadFile == null) {
-                    sb.append("file '").append(downloadFile!!.replace("'", "\\'")).append("'\n")
-                    i++
-                    updateProgress(i, pathes.size)
-                }
+            } else {
+                downloadFile = AudioUtils.downloadFile(this, uri, mTemplate!!.folder_template!!)
             }
-            downloadFile = AudioUtils.downloadFile(this, uri, mTemplate!!.folder_template!!)!!
-            if (downloadFile == null) {
-                sb.append("file '").append(downloadFile!!.replace("'", "\\'")).append("'\n")
-                i++
-                updateProgress(i, pathes.size)
+            if (downloadFile != null) {
+                sb.append("file '").append(downloadFile.replace("'", "\\'")).append("'\n")
             }
+            i++
+            updateProgress(i, pathes.size)
         }
         val file = File(mTemplate!!.folder_template, "concat.txt")
         val fileOutputStream = java.io.FileOutputStream(file)
@@ -1292,6 +1295,8 @@ fun EngineActivity.addAudioRecitersTemplateRunnable(
         arrayList.add("-f"); arrayList.add("s16le"); arrayList.add(file3.absolutePath); arrayList.add("-y")
         id_ffmpeg.add(
             FFmpegKit.executeWithArgumentsAsync(arrayList.toTypedArray()) { fFmpegSession ->
+                // BUG-E11 fix: guard against callbacks firing after activity destroy.
+                if (isDestroyed || isFinishing) return@executeWithArgumentsAsync
                 if (fFmpegSession.returnCode.isValueSuccess()) {
                     if (valIndex >= 0 && valIndex < mTemplate!!.entityMediaList.size) {
                         val entityMedia = mTemplate!!.entityMediaList[valIndex]
@@ -1316,6 +1321,7 @@ fun EngineActivity.addAudioRecitersTemplateRunnable(
                             if (effectAudio!!.speed != 1.0f) arrayList2Inner.addAll(buildSpeedFilters(effectAudio!!.speed))
                             id_ffmpeg.add(
                                 FFmpegKit.executeWithArgumentsAsync(arrayOf("-i", file2.absolutePath, "-af", TextUtils.join(",", arrayList2Inner), "-y", file4.absolutePath)) { _ ->
+                                    if (isDestroyed || isFinishing) return@executeWithArgumentsAsync
                                     addAudioTemplate(Uri.fromFile(file4), pathes, valIndex, file2.absolutePath, file3.absolutePath, valPathVideo ?: "")
                                 }.sessionId
                             )
@@ -1323,6 +1329,18 @@ fun EngineActivity.addAudioRecitersTemplateRunnable(
                         }
                     }
                     addAudioTemplate(Uri.fromFile(file2), pathes, valIndex, file2.absolutePath, file3.absolutePath, valPathVideo ?: "")
+                } else {
+                    // BUG-E21 fix: hide spinner + notify on concat failure
+                    // (previously no `else` branch → infinite spinner when concat.txt empty)
+                    runOnUiThread {
+                        hideProgressFragment()
+                        hideFragment()
+                        android.widget.Toast.makeText(
+                            applicationContext,
+                            "Audio merge failed",
+                            android.widget.Toast.LENGTH_SHORT
+                        ).show()
+                    }
                 }
             }.sessionId
         )

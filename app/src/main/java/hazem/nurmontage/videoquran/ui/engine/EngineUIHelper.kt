@@ -1913,11 +1913,19 @@ internal fun EngineActivity.pausePlayer() {
 }
 
 internal fun EngineActivity.releaseWakeLock() {
-    try { window.clearFlags(0x00000400) } catch (_: Exception) {}
+    // BUG-E19 fix: was clearing 0x400 (FLAG_LAYOUT_INSET_DECOR) instead of
+    // 0x80 (FLAG_KEEP_SCREEN_ON). The BaseActivity.wakeLockAcquire() adds 0x80,
+    // so the screen stayed awake for the entire window lifetime even after
+    // the user backgrounded the editor.
+    try { window.clearFlags(0x00000080) } catch (_: Exception) {}
 }
 
 internal fun EngineActivity.clearFFmpeg() {
-    for (id in id_ffmpeg) {
-        FFmpegKit.cancel(id)
+    // BUG-E13 fix: synchronize iteration to avoid ConcurrentModificationException
+    // (id_ffmpeg is mutated from FFmpeg callback threads via .add()).
+    val snapshot = synchronized(id_ffmpeg) { id_ffmpeg.toList() }
+    for (id in snapshot) {
+        try { FFmpegKit.cancel(id) } catch (_: Throwable) {}
     }
+    synchronized(id_ffmpeg) { id_ffmpeg.clear() }
 }
