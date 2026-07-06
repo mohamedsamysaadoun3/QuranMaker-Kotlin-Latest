@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#ff000000</color>
+    <color name="white">#ffffffff</color>
+    <color name="transparent">#00f44336</color>
+    <color name="studio">#ff111111</color>
+    <color name="tittle">#ff9096a1</color>
+    <color name="btn_color">#ff546e7a</color>
+    <color name="light_gris">#ffededed</color>
+    <color name="color_hint_add_quran">#ffb6b6b6</color>
+    <color name="black_overlay">#66000000</color>
+    <color name="ic_launcher_background">#ffffffff</color>
+    <!-- price_select kept — referenced by layouts (txt_share, row_feature, btn_to_about_) -->
+    <color name="price_select">#ffffffff</color>
+    <!-- price_select_last DELETED (premium, unused) -->
+    <!-- text_act_pro DELETED (premium, unused) -->
+    <color name="your_checked_color">#ff03dac5</color>
+    <color name="your_disabled_color">#ffff0000</color>
+    <color name="your_unchecked_color">#ffffffff</color>
+    <color name="light_blue_600">#ff039be5</color>
+    <color name="light_blue_900">#ff01579b</color>
+    <color name="light_blue_A200">#ff40c4ff</color>
+    <color name="light_blue_A400">#ff00b0ff</color>
+</resources>

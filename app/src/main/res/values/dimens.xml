@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Menu bar dimensions (⚠️ INVENTED — not in NurMontage Java reference) -->
+    <dimen name="menu_size">30dp</dimen>
+    <dimen name="menu_text_size">11sp</dimen>
+    <dimen name="menu_item_margin">3dp</dimen>
+    
+    <!-- Entity menu dimensions (values match reference) -->
+    <dimen name="item_menu_entity_w">64dp</dimen>
+    <dimen name="item_menu_entity_h">52dp</dimen>
+    <dimen name="item_menu_entity_w_tablet">100dp</dimen>
+    <dimen name="item_menu_entity_h_tablet">68dp</dimen>
+    <!-- ⚠️ INVENTED -->
+    <dimen name="margin_item_menu">4dp</dimen>
+    <dimen name="margin_done_cancel">12dp</dimen>
+    
+    <!-- General dimensions (fab_margin matches reference) -->
+    <dimen name="fab_margin">16dp</dimen>
+    
+    <!-- Tablet dimensions (⚠️ INVENTED — not in NurMontage Java reference) -->
+    <dimen name="menu_size_tablet">60dp</dimen>
+    <dimen name="menu_item_margin_tablet">7dp</dimen>
+    <dimen name="menu_text_size_tablet">16sp</dimen>
+    <dimen name="margin_item_menu_tabelet">8dp</dimen>
+</resources>

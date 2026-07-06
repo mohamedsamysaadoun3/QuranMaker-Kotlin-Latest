@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout android:theme="@style/ThemeOverlay.NurMontage.FullscreenContainer" android:gravity="center" android:orientation="vertical" android:background="@color/white" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <hazem.nurmontage.videoquran.views.TextCustumFontBold android:textSize="18.0sp" android:textColor="#ffff0058" android:gravity="center" android:layout_gravity="center" android:id="@+id/nur" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="فَلْيَأْتُوا بِحَدِيثٍ مِثْلِهِ." android:layout_centerInParent="true" android:paddingStart="35.0dip" android:paddingEnd="35.0dip" />
+    <LinearLayout android:gravity="center" android:layout_gravity="center" android:orientation="vertical" android:layout_width="wrap_content" android:layout_height="wrap_content">
+        <hazem.nurmontage.videoquran.views.text.AyaCustumFont android:textSize="18.5sp" android:textColor="#ffffffff" android:gravity="center" android:layout_gravity="center" android:background="@drawable/round_black_aya" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="فَلْيَأْتُوا بِحَدِيثٍ مِثْلِه" android:layout_centerInParent="true" android:paddingStart="30.0sp" android:paddingEnd="30.0sp" />
+        <hazem.nurmontage.videoquran.views.text.AyaCustumFont android:textSize="14.0sp" android:textColor="#ff222222" android:gravity="center" android:layout_gravity="start" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_margin="5.0dip" android:text="[ الطور: 34]" />
+    </LinearLayout>
+</FrameLayout>

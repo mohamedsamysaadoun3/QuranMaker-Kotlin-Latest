@@ -1,0 +1,300 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <uses-permission android:maxSdkVersion="32" android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:maxSdkVersion="32" android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.READ_MEDIA_VISUAL_USER_SELECTED"/>
+    <uses-permission android:name="android.permission.READ_MEDIA_VIDEO"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.READ_MEDIA_IMAGES"/>
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS"/>
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.VIBRATE"/>
+    <uses-permission android:name="android.permission.READ_MEDIA_AUDIO"/>
+
+    <queries>
+        <intent>
+            <action android:name="android.intent.action.SENDTO"/>
+            <data android:scheme="mailto"/>
+        </intent>
+        <package android:name="com.google.android.gm"/>
+        <package android:name="com.google.android.youtube"/>
+        <package android:name="com.zhiliaoapp.musically"/>
+        <package android:name="com.whatsapp"/>
+        <package android:name="com.instagram.android"/>
+        <package android:name="hazem.tuffah.quranaudio"/>
+    </queries>
+
+    <permission android:name="hazem.nurmontage.videoquran.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION"
+        android:protectionLevel="signature"/>
+    <uses-permission android:name="hazem.nurmontage.videoquran.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION"/>
+
+    <application
+        android:name="hazem.nurmontage.videoquran.core.App"
+        android:allowBackup="true"
+        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
+        android:dataExtractionRules="@xml/data_extraction_rules"
+        android:enableOnBackInvokedCallback="true"
+        android:extractNativeLibs="true"
+        android:fullBackupContent="@xml/backup_rules"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:localeConfig="@xml/locales_config"
+        android:networkSecurityConfig="@xml/network_security_config"
+        android:preserveLegacyExternalStorage="true"
+        android:requestLegacyExternalStorage="true"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="false"
+        android:theme="@style/Theme.NurMontage"
+        android:usesCleartextTraffic="true">
+
+        <!-- ═══════════════════════════════════════════════════ -->
+        <!-- Launcher Activity (Splash → Main)                   -->
+        <!-- ═══════════════════════════════════════════════════ -->
+        <activity
+            android:name="hazem.nurmontage.videoquran.ui.splash.FullscreenActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:exported="true"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.NurMontage.Starting">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+
+        <!-- ═══════════════════════════════════════════════════ -->
+        <!-- Core Engine Activities                              -->
+        <!-- ═══════════════════════════════════════════════════ -->
+        <activity
+            android:name="hazem.nurmontage.videoquran.ui.engine.EngineActivity"
+            android:exported="false"
+            android:screenOrientation="portrait"/>
+
+        <activity
+            android:name="hazem.nurmontage.videoquran.ui.render.ProgressViewActivity"
+            android:exported="true"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.App.Fullscreen"/>
+
+        <!-- ═══════════════════════════════════════════════════ -->
+        <!-- Video/Media Activities                              -->
+        <!-- ═══════════════════════════════════════════════════ -->
+        <activity
+            android:name="hazem.nurmontage.videoquran.ui.editor.VideoViewActivity"
+            android:configChanges="layoutDirection|locale|orientation|screenLayout|screenSize"
+            android:exported="true"
+            android:screenOrientation="portrait"/>
+
+        <activity
+            android:name="hazem.nurmontage.videoquran.ui.editor.VideoPlayerActivity"
+            android:configChanges="orientation|screenLayout|screenSize"
+            android:exported="false"
+            android:theme="@style/App.VideoPlayer"/>
+
+        <activity
+            android:name="hazem.nurmontage.videoquran.ui.editor.PlayVideoActivity"
+            android:exported="false"
+            android:screenOrientation="portrait"/>
+
+        <activity
+            android:name="hazem.nurmontage.videoquran.ui.gallery.GalleryPickerVideo"
+            android:exported="false"
+            android:screenOrientation="portrait"/>
+
+        <activity
+            android:name="hazem.nurmontage.videoquran.ui.gallery_photos.GalleryPickerOneImage"
+            android:exported="false"
+            android:screenOrientation="portrait"/>
+
+        <activity
+            android:name="hazem.nurmontage.videoquran.ui.editor.ChoiceBgFromVideoActivity"
+            android:exported="false"
+            android:screenOrientation="portrait"/>
+
+        <!-- ═══════════════════════════════════════════════════ -->
+        <!-- Editor Activities                                   -->
+        <!-- ═══════════════════════════════════════════════════ -->
+        <activity
+            android:name="hazem.nurmontage.videoquran.ui.editor.text.TextEditActivity"
+            android:exported="false"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateVisible"/>
+
+        <activity
+            android:name="hazem.nurmontage.videoquran.ui.editor.EditSNameActivity"
+            android:exported="false"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateVisible"/>
+
+        <activity
+            android:name="hazem.nurmontage.videoquran.ui.editor.EditTrslTxtActivity"
+            android:exported="false"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateVisible"/>
+
+        <activity
+            android:name="hazem.nurmontage.videoquran.ui.editor.audio.AddReaderNameActivity"
+            android:exported="false"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateVisible"/>
+
+        <activity
+            android:name="hazem.nurmontage.videoquran.ui.editor.CropBitmapActivity"
+            android:exported="false"
+            android:screenOrientation="portrait"/>
+
+        <!-- ═══════════════════════════════════════════════════ -->
+        <!-- Search & Browse Activities                          -->
+        <!-- ═══════════════════════════════════════════════════ -->
+        <activity
+            android:name="hazem.nurmontage.videoquran.ui.search.QuranSearchActivity"
+            android:exported="false"
+            android:screenOrientation="portrait"/>
+
+        <activity
+            android:name="hazem.nurmontage.videoquran.ui.search.PixabaySearchActivity"
+            android:exported="false"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.NurMontage"/>
+
+        <activity
+            android:name="hazem.nurmontage.videoquran.ui.home.WorkUserActivity"
+            android:configChanges="layoutDirection|locale"
+            android:exported="true"
+            android:screenOrientation="portrait"/>
+
+        <!-- ═══════════════════════════════════════════════════ -->
+        <!-- Free Layer / Social Activities                      -->
+        <!-- ═══════════════════════════════════════════════════ -->
+        <activity
+            android:name="hazem.nurmontage.videoquran.ui.editor.FreeLayerActivity"
+            android:exported="false"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.NurMontage"/>
+
+        <activity
+            android:name="hazem.nurmontage.videoquran.ui.share.ShareWithMeActivity"
+            android:exported="true"
+            android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.intent.action.SEND"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <data android:mimeType="audio/*"/>
+                <data android:mimeType="video/*"/>
+                <data android:mimeType="image/*"/>
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name="hazem.nurmontage.videoquran.ui.home.YoutuberActivity"
+            android:exported="false"
+            android:screenOrientation="portrait"/>
+
+        <!-- ═══════════════════════════════════════════════════ -->
+        <!-- Settings & Info Activities                          -->
+        <!-- ═══════════════════════════════════════════════════ -->
+        <activity
+            android:name="hazem.nurmontage.videoquran.ui.settings.SeettingActivity"
+            android:exported="false"
+            android:screenOrientation="portrait"/>
+
+        <activity
+            android:name="hazem.nurmontage.videoquran.ui.settings.AboutActivity"
+            android:exported="false"
+            android:screenOrientation="portrait"/>
+
+        <activity
+            android:name="hazem.nurmontage.videoquran.ui.settings.ChoiceLangActivity"
+            android:exported="false"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.NurMontage"/>
+
+        <activity
+            android:name="hazem.nurmontage.videoquran.ui.settings.ThanksYouActivity"
+            android:exported="false"
+            android:screenOrientation="portrait"/>
+
+        <!-- ═══════════════════════════════════════════════════ -->
+        <!-- Billing / Pro / Ads — REMOVED (free, clean app)    -->
+        <!-- ═══════════════════════════════════════════════════ -->
+
+        <!-- ═══════════════════════════════════════════════════ -->
+        <!-- FileProvider                                        -->
+        <!-- ═══════════════════════════════════════════════════ -->
+        <provider
+            android:name="androidx.core.content.FileProvider"
+            android:authorities="@string/file_provider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_pathes"/>
+        </provider>
+
+        <!-- ═══════════════════════════════════════════════════ -->
+        <!-- AndroidX Initialization                            -->
+        <!-- ═══════════════════════════════════════════════════ -->
+        <provider
+            android:name="androidx.startup.InitializationProvider"
+            android:authorities="hazem.nurmontage.videoquran.androidx-startup"
+            android:exported="false">
+            <meta-data
+                android:name="androidx.emoji2.text.EmojiCompatInitializer"
+                android:value="androidx.startup"/>
+            <meta-data
+                android:name="androidx.lifecycle.ProcessLifecycleInitializer"
+                android:value="androidx.startup"/>
+            <meta-data
+                android:name="androidx.profileinstaller.ProfileInstallerInitializer"
+                android:value="androidx.startup"/>
+        </provider>
+
+        <service
+            android:name="androidx.appcompat.app.AppLocalesMetadataHolderService"
+            android:enabled="false"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="androidx.appcompat.app.AppLocalesMetadataHolderService"/>
+            </intent-filter>
+            <meta-data
+                android:name="autoStoreLocales"
+                android:value="true"/>
+        </service>
+
+        <receiver
+            android:name="androidx.profileinstaller.ProfileInstallReceiver"
+            android:directBootAware="false"
+            android:enabled="true"
+            android:exported="true"
+            android:permission="android.permission.DUMP">
+            <intent-filter>
+                <action android:name="androidx.profileinstaller.action.INSTALL_PROFILE"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="androidx.profileinstaller.action.SKIP_FILE"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="androidx.profileinstaller.action.SAVE_PROFILE"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="androidx.profileinstaller.action.BENCHMARK_OPERATION"/>
+            </intent-filter>
+        </receiver>
+
+        <!-- ═══════════════════════════════════════════════════ -->
+        <!-- Meta Data                                           -->
+        <!-- ═══════════════════════════════════════════════════ -->
+        <meta-data
+            android:name="com.google.android.gms.version"
+            android:value="@integer/google_play_services_version"/>
+
+        <uses-library
+            android:name="androidx.window.extensions"
+            android:required="false"/>
+        <uses-library
+            android:name="androidx.window.sidecar"
+            android:required="false"/>
+
+    </application>
+</manifest>

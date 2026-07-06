@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:focusable="false" android:clickable="false" android:layout_width="fill_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <hazem.nurmontage.videoquran.views.TextCustumFont android:textSize="14.0sp" android:textColor="@color/white" android:gravity="center" android:id="@+id/tv_font" android:paddingTop="8.0dip" android:paddingBottom="8.0dip" android:focusable="true" android:clickable="true" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_margin="8.0dip" android:layout_centerInParent="true" android:paddingStart="8.0dip" android:paddingEnd="8.0dip" android:layout_toStartOf="@+id/tv_number" />
+    <hazem.nurmontage.videoquran.views.TextCustumFont android:textSize="12.0sp" android:textColor="@color/white" android:id="@+id/tv_number" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_centerInParent="true" android:layout_alignParentEnd="true" />
+</RelativeLayout>

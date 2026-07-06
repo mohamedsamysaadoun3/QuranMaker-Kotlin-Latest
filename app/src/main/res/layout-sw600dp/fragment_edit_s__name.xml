@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="horizontal" android:background="@drawable/top_line_bg" android:focusable="true" android:scrollbars="none" android:clickable="true" android:layout_width="fill_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <LinearLayout android:gravity="center" android:orientation="vertical" android:id="@+id/btn_edit" android:background="@drawable/item_menu_focus" android:focusable="true" android:clickable="true" android:layout_width="@dimen/item_menu_entity_w_tablet" android:layout_height="wrap_content" android:layout_margin="@dimen/margin_item_menu">
+        <ImageView android:focusable="false" android:clickable="false" android:layout_width="18.0dip" android:layout_height="18.0dip" android:layout_margin="2.0dip" android:src="@drawable/edit_24px" app:tint="#ff8cd279" />
+        <hazem.nurmontage.videoquran.views.TextCustumFont android:textSize="15.0sp" android:textColor="@color/white" android:id="@+id/tv_edit" android:padding="3.0dip" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/edit" />
+    </LinearLayout>
+    <LinearLayout android:gravity="center" android:orientation="vertical" android:id="@+id/btn_color" android:background="@drawable/item_menu_focus" android:focusable="true" android:clickable="true" android:layout_width="@dimen/item_menu_entity_w_tablet" android:layout_height="wrap_content" android:layout_margin="@dimen/margin_item_menu">
+        <ImageView android:focusable="false" android:clickable="false" android:layout_width="18.0dip" android:layout_height="18.0dip" android:layout_margin="2.0dip" android:src="@drawable/ic_palette_color" app:tint="#ff8cd279" />
+        <hazem.nurmontage.videoquran.views.TextCustumFont android:textSize="15.0sp" android:textColor="@color/white" android:id="@+id/tv_color" android:padding="3.0dip" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/color" />
+    </LinearLayout>
+    <LinearLayout android:gravity="center" android:orientation="vertical" android:id="@+id/btn_font" android:background="@drawable/item_menu_focus" android:focusable="true" android:clickable="true" android:layout_width="@dimen/item_menu_entity_w_tablet" android:layout_height="wrap_content" android:layout_margin="@dimen/margin_item_menu">
+        <ImageView android:focusable="false" android:clickable="false" android:layout_width="18.0dip" android:layout_height="18.0dip" android:layout_margin="2.0dip" android:src="@drawable/ic_font" app:tint="@color/white" />
+        <hazem.nurmontage.videoquran.views.TextCustumFont android:textSize="15.0sp" android:textColor="@color/white" android:id="@+id/tv_font" android:padding="3.0dip" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/font" />
+    </LinearLayout>
+</LinearLayout>

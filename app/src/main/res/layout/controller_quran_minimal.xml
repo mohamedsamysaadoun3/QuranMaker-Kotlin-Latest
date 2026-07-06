@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout android:padding="16.0dip" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:id="@+id/topBar" android:layout_width="fill_parent" android:layout_height="48.0dip">
+        <ImageButton android:id="@+id/btnBack" android:background="@drawable/round_btn_quran" android:padding="8.0dip" android:layout_width="40.0dip" android:layout_height="40.0dip" android:src="@drawable/close_24px" android:scaleType="centerCrop" app:tint="@android:color/white" />
+        <View android:layout_width="0.0dip" android:layout_height="0.0dip" android:layout_weight="1.0" />
+        <ImageButton android:id="@+id/btnRotate" android:background="@drawable/round_btn_quran" android:padding="10.0dip" android:layout_width="40.0dip" android:layout_height="40.0dip" android:src="@drawable/ic_screen_rotation" android:scaleType="centerCrop" app:tint="@android:color/white" />
+    </LinearLayout>
+    <ImageButton android:layout_gravity="center" android:id="@+id/btn_play_pause" android:background="@drawable/oval_transparent" android:padding="13.0dip" android:focusable="true" android:clickable="true" android:layout_width="50.0dip" android:layout_height="50.0dip" android:src="@drawable/pause_24px" android:scaleType="centerCrop" app:tint="@color/white" />
+    <LinearLayout android:gravity="bottom" android:orientation="vertical" android:id="@+id/bottomBar" android:paddingBottom="16.0dip" android:layout_width="fill_parent" android:layout_height="fill_parent">
+        <androidx.media3.ui.DefaultTimeBar android:id="@+id/exo_progress" android:layout_width="fill_parent" android:layout_height="26.0dip" android:layout_marginTop="8.0dip" />
+        <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_margin="5.0dip">
+            <hazem.nurmontage.videoquran.views.TextCustumFont android:textSize="13.0sp" android:textColor="@android:color/white" android:id="@+id/exo_position" android:layout_width="wrap_content" android:layout_height="wrap_content" android:paddingEnd="8.0dip" />
+            <hazem.nurmontage.videoquran.views.TextCustumFont android:textSize="13.0sp" android:textColor="@android:color/white" android:id="@+id/exo_duration" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+        </LinearLayout>
+    </LinearLayout>
+</FrameLayout>

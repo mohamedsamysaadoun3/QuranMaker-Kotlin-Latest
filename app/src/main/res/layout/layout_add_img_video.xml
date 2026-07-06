@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <LinearLayout android:gravity="center" android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="10.0dip">
+        <LinearLayout android:gravity="center" android:orientation="vertical" android:id="@+id/btn_add_img" android:background="@drawable/btn_upload_img" android:padding="8.0dip" android:focusable="true" android:clickable="true" android:layout_width="0.0dip" android:layout_height="wrap_content" android:layout_margin="8.0dip" android:layout_weight="1.0">
+            <ImageView android:focusable="false" android:clickable="false" android:layout_width="30.0dip" android:layout_height="30.0dip" android:layout_margin="3.0dip" android:src="@drawable/image_24px" app:tint="#ffdadada" />
+            <hazem.nurmontage.videoquran.views.TextCustumFont android:textColor="#ff234e23" android:id="@+id/tv_img" android:paddingBottom="8.0dip" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Image" />
+        </LinearLayout>
+        <RelativeLayout android:orientation="vertical" android:id="@+id/btn_add_video" android:background="@drawable/btn_upload_video" android:padding="8.0dip" android:focusable="true" android:clickable="true" android:layout_width="0.0dip" android:layout_height="wrap_content" android:layout_margin="8.0dip" android:layout_weight="1.0">
+            <ImageView android:id="@+id/iv_data_disable" android:padding="5.0dip" android:focusable="false" android:visibility="gone" android:clickable="false" android:layout_width="30.0dip" android:layout_height="30.0dip" android:layout_margin="3.0dip" android:src="@drawable/ic_data_premium" android:layout_alignParentTop="true" android:layout_alignParentStart="true" app:tint="#ffdadada" />
+            <LinearLayout android:gravity="center" android:orientation="vertical" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_centerInParent="true">
+                <ImageView android:id="@+id/img" android:focusable="false" android:clickable="false" android:layout_width="30.0dip" android:layout_height="30.0dip" android:layout_margin="3.0dip" android:src="@drawable/movie_24px" android:layout_centerInParent="true" app:tint="#ffdadada" />
+                <hazem.nurmontage.videoquran.views.TextCustumFont android:textColor="#ff153147" android:id="@+id/tv_video" android:paddingBottom="8.0dip" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Video" android:layout_below="@+id/img" android:layout_toStartOf="@+id/img" />
+            </LinearLayout>
+        </RelativeLayout>
+    </LinearLayout>
+    <ImageButton android:layout_gravity="center" android:id="@+id/btn_close" android:background="@color/transparent" android:padding="5.0dip" android:layout_width="30.0dip" android:layout_height="30.0dip" android:layout_margin="8.0dip" android:src="@drawable/close_24px" android:scaleType="centerInside" app:tint="#ffdadada" />
+</LinearLayout>

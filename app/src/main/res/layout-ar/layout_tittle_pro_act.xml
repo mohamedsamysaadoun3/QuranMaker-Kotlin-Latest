@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:gravity="center" android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="wrap_content" android:translationY="-5.0dip"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <ImageView android:layout_width="40.0dip" android:layout_height="40.0dip" android:src="@drawable/crown_24px" />
+    <LinearLayout android:gravity="center" android:layout_gravity="center" android:orientation="horizontal" android:layout_width="wrap_content" android:layout_height="wrap_content">
+        <ImageView android:id="@+id/iv_confirm" android:padding="5.0dip" android:focusable="false" android:visibility="gone" android:clickable="false" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/checked_green" />
+        <hazem.nurmontage.videoquran.views.TextCustumFontBold android:textSize="18.0sp" android:textColor="#ffffffff" android:gravity="center" android:layout_gravity="center" android:padding="5.0dip" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="الترقية إلى PREMIUM" />
+    </LinearLayout>
+    <hazem.nurmontage.videoquran.views.TextCustumFont android:textSize="12.0sp" android:textColor="#ffffffff" android:gravity="center" android:layout_gravity="center" android:id="@+id/tv_subtittle" android:paddingLeft="8.0dip" android:paddingRight="8.0dip" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_margin="5.0dip" android:text="NurMontage يساعدك على إخراج فيديوهات قرآنية رائعة بسهولة" android:paddingStart="8.0dip" android:paddingEnd="8.0dip" />
+</LinearLayout>

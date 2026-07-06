@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:orientation="vertical" android:background="@drawable/top_line_bg" android:focusable="true" android:scrollbars="none" android:clickable="true" android:layout_width="fill_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <LinearLayout android:gravity="center" android:orientation="vertical" android:id="@+id/btn_delete" android:background="@drawable/item_menu_focus" android:focusable="true" android:clickable="true" android:layout_width="@dimen/item_menu_entity_w_tablet" android:layout_height="wrap_content" android:layout_alignParentLeft="true" android:layout_centerInParent="true" android:layout_alignParentStart="true">
+        <ImageView android:focusable="false" android:clickable="false" android:layout_width="18.0dip" android:layout_height="18.0dip" android:layout_margin="2.0dip" android:src="@drawable/delete_24px" />
+        <hazem.nurmontage.videoquran.views.TextCustumFont android:textSize="15.0sp" android:textColor="@color/white" android:id="@+id/tv_delete" android:padding="3.0dip" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/delete" />
+    </LinearLayout>
+    <LinearLayout android:gravity="center" android:orientation="vertical" android:id="@+id/btn_cut" android:background="@drawable/item_menu_focus" android:focusable="true" android:clickable="true" android:layout_width="@dimen/item_menu_entity_w_tablet" android:layout_height="wrap_content" android:layout_margin="@dimen/margin_item_menu_tabelet" android:layout_alignParentTop="true" android:layout_centerInParent="true">
+        <ImageView android:id="@+id/iv_cut" android:focusable="false" android:clickable="false" android:layout_width="18.0dip" android:layout_height="18.0dip" android:layout_margin="2.0dip" android:src="@drawable/content_cut_24px" app:tint="@color/white" />
+        <hazem.nurmontage.videoquran.views.TextCustumFont android:textSize="15.0sp" android:textColor="@color/white" android:id="@+id/tv_cut" android:padding="3.0dip" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/cut" />
+    </LinearLayout>
+</RelativeLayout>

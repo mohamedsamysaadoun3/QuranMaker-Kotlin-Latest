@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="exo_controls_playback_speeds">
+        <item>أسرع بـ 0.25 مرة</item>
+        <item>أسرع بـ 0.5 مرات</item>
+        <item>أسرع بـ 0.75 مرة</item>
+        <item>عادية</item>
+        <item>أسرع بـ 1.25 مرة</item>
+        <item>أسرع بـ 1.5 مرة</item>
+        <item>أسرع بمرتين</item>
+    </string-array>
+    <string-array name="feature_list">
+        <item>إزالة العلامة المائية</item>
+        <item>فتح جميع الأيبود</item>
+        <item>تحميل فيديو</item>
+        <item>التصدير : ليوتيوب، تيك توك، انستقرام…</item>
+        <item>تحكم في الصورة المصغرة</item>
+        <item>فتح الألوان المتدرجة</item>
+    </string-array>
+    <string-array name="reciters">
+        <item>عبد الباسط مجود</item>
+        <item>عبد الباسط مرتل</item>
+        <item>عبد الله عواد الجهني</item>
+        <item>عبد الله بصفر</item>
+        <item>عبد الرحمن السديس</item>
+        <item>أبو بكر الشاطري</item>
+        <item>أحمد العجمي</item>
+        <item>أحمد نعيناعة</item>
+        <item>أكرم العلاقمي</item>
+        <item>العفاسي</item>
+        <item>علي حجاج السويسي</item>
+        <item>علي جابر</item>
+        <item>أحمد النفيس</item>
+        <item>أيمن سويد</item>
+        <item>عزيز عليلي</item>
+        <item>فارس عباد</item>
+        <item>الغامدي</item>
+        <item>هاني الرفاعي</item>
+        <item>الحذيفي</item>
+        <item>الحصري</item>
+        <item>الحصري (معلم)</item>
+        <item>إبراهيم الأخضر</item>
+        <item>كريم منصوري</item>
+        <item>خالد القحطاني</item>
+        <item>خليفة الطنيجي</item>
+        <item>ماهر المعيقلي</item>
+        <item>محمود علي البنا</item>
+        <item>المنشاوي</item>
+        <item>المنشاوي مجود</item>
+        <item>المنشاوي مرتل</item>
+        <item>محمد الطبلاوي</item>
+        <item>محمد عبد الكريم</item>
+        <item>محمد أيوب</item>
+        <item>محمد جبريل</item>
+        <item>محسن القاسم</item>
+        <item>مصطفى إسماعيل</item>
+        <item>ناصر القطامي</item>
+        <item>سهل ياسين</item>
+        <item>صلاح بوخاطر</item>
+        <item>صلاح البدير</item>
+        <item>سعود الشريم</item>
+        <item>ياسر سلامة</item>
+        <item>ياسر الدوسري</item>
+    </string-array>
+    <string-array name="reciters_en">
+        <item>ناصر القطامي</item>
+        <item>ياسر الدوسري</item>
+    </string-array>
+    <string-array name="translation_name">
+        <item>بدون ترجمة</item>
+        <item>English-Hilali &amp; Khan</item>
+        <item>French - Hamidullah</item>
+        <item>Urud</item>
+        <item>Turkish</item>
+        <item>German - Bubenheim &amp; Elyas</item>
+        <item>Indonesian - Bahasa Indonesia</item>
+        <item>Persian - Mohammad Mahdi Fooladvand</item>
+        <item>Bengali - Muhiuddin Khan</item>
+    </string-array>
+    <string-array name="translation_name_l">
+        <item>بدون ترجمة</item>
+        <item>تفسير الميسر</item>
+        <item>English-Hilali &amp; Khan</item>
+        <item>French - Hamidullah</item>
+        <item>Urud</item>
+        <item>Turkish</item>
+        <item>Bangali</item>
+        <item>Persian</item>
+        <item>Hindi</item>
+        <item>Tamil</item>
+        <item>Ingush</item>
+        <item>Indonesian</item>
+    </string-array>
+</resources>

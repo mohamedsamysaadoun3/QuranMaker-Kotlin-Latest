@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="horizontal" android:focusable="true" android:clickable="true" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_margin="5.0dip"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <hazem.nurmontage.videoquran.views.image.SquareImageViewSimple android:layout_gravity="center" android:id="@+id/img" android:focusable="false" android:clickable="false" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+    <LinearLayout android:gravity="center" android:orientation="vertical" android:focusable="false" android:clickable="false" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_margin="8.0dip">
+        <hazem.nurmontage.videoquran.views.TextCustumFont android:textSize="14.0sp" android:textColor="@color/white" android:layout_gravity="bottom" android:id="@+id/tv_name" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_margin="5.0dip" />
+        <hazem.nurmontage.videoquran.views.TextCustumFont android:textSize="12.0sp" android:textColor="@color/white" android:layout_gravity="bottom" android:id="@+id/tv_size" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_margin="5.0dip" />
+    </LinearLayout>
+</LinearLayout>

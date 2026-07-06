@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:background="@drawable/top_line_bg" android:focusable="true" android:clickable="true" android:layout_width="fill_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <com.google.android.material.tabs.TabLayout android:layout_gravity="center" android:id="@+id/tab_layout" android:background="@color/transparent" android:layout_width="wrap_content" android:layout_height="35.0dip" android:layout_margin="2.0dip" android:layout_marginTop="2.0dip" android:layout_marginBottom="15.0dip" android:layout_marginEnd="7.0dip" app:tabGravity="center" app:tabIndicatorColor="@color/white" app:tabIndicatorHeight="2.0dip" app:tabPaddingEnd="10.0dip" app:tabPaddingStart="10.0dip" app:tabRippleColor="@null" app:tabSelectedTextColor="@android:color/white" app:tabTextColor="@color/white" />
+    <LinearLayout android:gravity="center" android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="5.0dip">
+        <ImageButton android:id="@+id/btn_unEffect" android:background="@drawable/circle_item_menu" android:padding="12.0dip" android:layout_width="48.0dip" android:layout_height="48.0dip" android:layout_marginLeft="5.0dip" android:src="@drawable/ic_none_border" android:scaleType="centerInside" android:layout_marginStart="5.0dip" android:layout_marginEnd="2.0dip" />
+        <androidx.recyclerview.widget.RecyclerView android:id="@+id/rv" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_margin="5.0dip" />
+    </LinearLayout>
+    <RelativeLayout android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_margin="10.0dip">
+        <SeekBar android:layout_gravity="center" android:id="@+id/seekbar" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="4.0dip" android:layout_marginBottom="4.0dip" android:layout_centerInParent="true" android:layout_marginStart="15.0dip" android:layout_marginEnd="15.0dip" android:layout_toStartOf="@+id/status_duration" android:splitTrack="false" style="@style/CustomSeekBarStyle" />
+        <hazem.nurmontage.videoquran.views.TextCustumFont android:textSize="12.0sp" android:textColor="@color/white" android:gravity="center" android:id="@+id/status_duration" android:layout_width="30.0dip" android:layout_height="wrap_content" android:text="10" android:layout_centerInParent="true" android:layout_marginStart="3.0dip" android:layout_marginEnd="3.0dip" android:layout_alignParentEnd="true" />
+    </RelativeLayout>
+    <RelativeLayout android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_margin="5.0dip">
+        <ImageButton android:layout_gravity="center" android:id="@+id/btn_close" android:background="@color/transparent" android:padding="5.0dip" android:layout_width="30.0dip" android:layout_height="30.0dip" android:layout_margin="8.0dip" android:src="@drawable/close_24px" android:scaleType="centerInside" android:layout_centerInParent="true" app:tint="#ffdadada" />
+        <LinearLayout android:gravity="center" android:orientation="horizontal" android:id="@+id/btn_appl_all" android:focusable="true" android:clickable="true" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_alignParentRight="true" android:layout_centerInParent="true" android:layout_alignParentEnd="true">
+            <ImageView android:id="@+id/iv_apply_all" android:focusable="false" android:clickable="false" android:layout_width="20.0dip" android:layout_height="20.0dip" android:src="@drawable/check_24px" app:tint="#ff808080" />
+            <hazem.nurmontage.videoquran.views.TextCustumFont android:textColor="#ff808080" android:id="@+id/tv_apply_all" android:padding="5.0dip" android:focusable="false" android:clickable="false" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/applyall" />
+        </LinearLayout>
+    </RelativeLayout>
+</LinearLayout>

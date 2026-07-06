@@ -1,0 +1,196 @@
+package hazem.nurmontage.videoquran.fragment.audio_effect
+
+import android.os.Bundle
+import android.text.TextUtils
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
+import android.widget.ImageButton
+import android.widget.LinearLayout
+import androidx.appcompat.widget.SwitchCompat
+import androidx.fragment.app.Fragment
+import hazem.nurmontage.videoquran.R
+import hazem.nurmontage.videoquran.core.common.Common
+import hazem.nurmontage.videoquran.constant.EffectAudioType
+import hazem.nurmontage.videoquran.databinding.FragmentRemoveNoiceBinding
+import hazem.nurmontage.videoquran.entity_timeline.EntityAudio
+import hazem.nurmontage.videoquran.fragment.EditMediaFragment
+import hazem.nurmontage.videoquran.model.EffectAudio
+import hazem.nurmontage.videoquran.views.TextCustumFont
+import java.util.Locale
+
+class EnhanceVoiceFragment : Fragment {
+
+    companion object {
+        @JvmStatic var instance: EnhanceVoiceFragment? = null
+
+        fun getInstance(
+            iEditMediaCallback: EditMediaFragment.IEditMediaCallback?,
+            entityAudio: EntityAudio?
+        ): EnhanceVoiceFragment {
+            if (instance == null) {
+                instance = EnhanceVoiceFragment(iEditMediaCallback, entityAudio)
+            }
+            return instance!!
+        }
+    }
+
+    private var binding: FragmentRemoveNoiceBinding? = null
+    private var btnPreview: ImageButton? = null
+    private var btn_remove_noice: SwitchCompat? = null
+    private var entityAudio: EntityAudio? = null
+    private var iEditMediaCallback: EditMediaFragment.IEditMediaCallback? = null
+    private var isPlay: Boolean = false
+
+    constructor()
+    constructor(
+        iEditMediaCallback: EditMediaFragment.IEditMediaCallback?,
+        entityAudio: EntityAudio?
+    ) {
+        this.iEditMediaCallback = iEditMediaCallback
+        this.entityAudio = entityAudio
+    }
+
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View {
+        val bind = FragmentRemoveNoiceBinding.inflate(inflater, container, false)
+        binding = bind
+        val root: LinearLayout = bind.root
+
+        if (iEditMediaCallback == null || entityAudio == null) {
+            return root
+        }
+
+        val switchCompat = root.findViewById<SwitchCompat>(R.id.btn_remove_noice)
+        btn_remove_noice = switchCompat
+        switchCompat.isChecked = entityAudio!!.effectAudio.isEnhance
+        btn_remove_noice?.setOnCheckedChangeListener { _, _ ->
+            apply(false)
+        }
+
+        (root.findViewById(R.id.tv_remove_noice) as TextCustumFont)
+            .text = resources.getString(R.string.enhance_voice)
+
+        root.findViewById<View>(R.id.btn_appl_all).setOnClickListener { apply(true) }
+        root.findViewById<View>(R.id.btn_done).setOnClickListener { onDone() }
+
+        val imageButton = root.findViewById<ImageButton>(R.id.btn_play)
+        btnPreview = imageButton
+        imageButton.setOnClickListener { preview() }
+
+        return root
+    }
+
+    fun updateButton() {
+        btnPreview?.setImageResource(R.drawable.play_arrow_24px)
+        isPlay = false
+    }
+
+    private fun preview() {
+        val wasPlaying = isPlay
+        isPlay = !wasPlaying
+        iEditMediaCallback?.let {
+            if (!wasPlaying) {
+                it.startPreview()
+                btnPreview?.setImageResource(R.drawable.pause_24px)
+            } else {
+                it.pausePreview()
+                btnPreview?.setImageResource(R.drawable.play_arrow_24px)
+            }
+        }
+    }
+
+    private fun onDone() {
+        iEditMediaCallback?.onDone()
+    }
+
+    private fun apply(applyAll: Boolean) {
+        val effectAudio = entityAudio?.effectAudio ?: return
+        effectAudio.isEnhance = btn_remove_noice?.isChecked ?: false
+
+        val start = effectAudio.start / 1000.0f
+        val end = effectAudio.end / 1000.0f
+
+        val filters = arrayListOf<String>()
+        filters.add(String.format(Locale.US, "atrim=start=%.2f:end=%.2f", start, end))
+        filters.add("asetpts=N/SR/TB")
+
+        if (effectAudio.isRemoveNoice) {
+            filters.add("afftdn=nf=-25")
+        }
+
+        filters.add(String.format(Locale.US, "volume=%.2f", effectAudio.volume))
+
+        if (effectAudio.fade_in > 0) {
+            filters.add("afade=t=in:st=0:d=" + effectAudio.fade_in)
+        }
+        if (effectAudio.fade_out > 0) {
+            val fadeOut = effectAudio.fade_out.toFloat()
+            filters.add("afade=t=out:st=" + ((end - start) - fadeOut) + ":d=" + fadeOut)
+        }
+
+        if (effectAudio.isEnhance) {
+            filters.add(Common.ENHANCE_CMD)
+        }
+
+        effectAudio.reverbPreset?.let { filters.add(it) }
+
+        if (effectAudio.decays > 0) {
+            filters.add(
+                String.format(
+                    Locale.US, "aecho=%.2f:%.2f:%s:%s",
+                    1.0f, effectAudio.outGain, effectAudio.delays_cmd, effectAudio.decays_cmd
+                )
+            )
+        }
+
+        if (effectAudio.speed != 1.0f) {
+            filters.addAll(buildSpeedFilters(effectAudio.speed))
+        }
+
+        iEditMediaCallback?.let {
+            if (applyAll) {
+                it.updateEntity(EffectAudioType.ENHANCE, entityAudio!!)
+                iEditMediaCallback?.onCmdAll(effectAudio)
+            } else {
+                iEditMediaCallback?.onCmd(TextUtils.join(",", filters))
+            }
+        }
+    }
+
+    private fun buildSpeedFilters(speed: Float): List<String> {
+        val filters = arrayListOf<String>()
+        var remaining = speed
+
+        when {
+            remaining < 0.5f -> {
+                while (remaining < 0.5f) {
+                    filters.add("atempo=0.5")
+                    remaining /= 0.5f
+                }
+                filters.add(String.format(Locale.US, "atempo=%.2f", remaining))
+            }
+            remaining > 2.0f -> {
+                while (remaining > 2.0f) {
+                    filters.add("atempo=2.0")
+                    remaining /= 2.0f
+                }
+                filters.add(String.format(Locale.US, "atempo=%.2f", remaining))
+            }
+            else -> {
+                filters.add(String.format(Locale.US, "atempo=%.2f", remaining))
+            }
+        }
+
+        return filters
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        instance = null
+        binding = null
+    }
+}

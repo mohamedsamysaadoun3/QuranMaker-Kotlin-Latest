@@ -1,0 +1,606 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="feature_list">
+        <item>Remove Watermark (Pro)</item>
+        <item>Unlock All new Ipod (Pro)</item>
+        <item>Upload Video (Pro)</item>
+        <item>Export : Youtube , Tiktok , Instagram…</item>
+        <item>Scaling iPod image (Pro)</item>
+        <item>Unlock gradient colors (Pro)</item>
+    </string-array>
+    <string-array name="identifier">
+        <item>abdulBasitMujawwad</item>
+        <item>abdulBasitMurattal</item>
+        <item>Abdullaah_3awwaad_Al-Juhaynee_128kbps</item>
+        <item>Abdullah_Basfar_32kbps</item>
+        <item>abdulrahmanAlSudais</item>
+        <item>abuBakrAlShatri</item>
+        <item>ahmed_ibn_ali_al_ajamy_128kbps</item>
+        <item>Ahmed_Neana_128kbps</item>
+        <item>Akram_AlAlaqimy_128kbps</item>
+        <item>alafasy</item>
+        <item>Ali_Hajjaj_AlSuesy_128kbps</item>
+        <item>Ali_Jaber_64kbps</item>
+        <item>alnufais</item>
+        <item>Ayman_Sowaid_64kbps</item>
+        <item>aziz_alili_128kbps</item>
+        <item>Fares_Abbad_64kbps</item>
+        <item>ghamadi</item>
+        <item>Rifai</item>
+        <item>Hudhaify_32kbps</item>
+        <item>husary</item>
+        <item>husaryMuallim</item>
+        <item>Ibrahim_Akhdar_32kbps</item>
+        <item>Karim_Mansoori_40kbps</item>
+        <item>Khaalid_Abdullaah_al-Qahtaanee_192kbps</item>
+        <item>khalifaAlTunaiji</item>
+        <item>maherAlMuaiqly</item>
+        <item>mahmoud_ali_al_banna_32kbps</item>
+        <item>Menshawi_16kbps</item>
+        <item>Minshawy_Mujawwad_64kbps</item>
+        <item>minshawyMurattal</item>
+        <item>Mohammad_al_Tablaway_64kbps</item>
+        <item>Muhammad_AbdulKareem_128kbps</item>
+        <item>Muhammad_Ayyoub_128kbps</item>
+        <item>Muhammad_Jibreel_64kbps</item>
+        <item>Muhsin_Al_Qasim_192kbps</item>
+        <item>Mustafa_Ismail_48kbps</item>
+        <item>Nasser_Alqatami_128kbps</item>
+        <item>Sahl_Yassin_128kbps</item>
+        <item>Salaah_AbdulRahman_Bukhatir_128kbps</item>
+        <item>Salah_Al_Budair_128kbps</item>
+        <item>saudAlShuraim</item>
+        <item>Yaser_Salamah_128kbps</item>
+        <item>yasserAlDosari</item>
+    </string-array>
+    <string-array name="reciters">
+        <item>Abdel Basit Mujawwad</item>
+        <item>Abdel Basit Murattal</item>
+        <item>Abdullaah 3awwaad Al-Juhaynee</item>
+        <item>Abdullah Basfar</item>
+        <item>Abdurrahmaan As-Sudais</item>
+        <item>Abu Bakr Ash-Shaatree</item>
+        <item>Ahmed ibn Ali al-Ajamy</item>
+        <item>Ahmed Neana</item>
+        <item>Akram Al Alaqimy</item>
+        <item>Alafasy</item>
+        <item>Ali Hajjaj AlSuesy</item>
+        <item>Ali Jaber</item>
+        <item>Ahmad Alnufais</item>
+        <item>Ayman Sowaid</item>
+        <item>Aziz Alili</item>
+        <item>Fares Abbad</item>
+        <item>Ghamadi</item>
+        <item>Hani Rifai</item>
+        <item>Hudhaify</item>
+        <item>Husary</item>
+        <item>Husary (Muallim)</item>
+        <item>Ibrahim Akhdar</item>
+        <item>Karim Mansoori</item>
+        <item>Khalid Abdullah al-Qahtanee</item>
+        <item>Khalifa Al Tunaiji</item>
+        <item>Maher Al Muaiqly</item>
+        <item>Mahmoud Ali Al-Banna</item>
+        <item>Menshawi</item>
+        <item>Minshawy Mujawwad</item>
+        <item>Minshawy Murattal</item>
+        <item>Mohammad al Tablaway</item>
+        <item>Muhammad AbdulKareem</item>
+        <item>Muhammad Ayyoub</item>
+        <item>Muhammad Jibreel</item>
+        <item>Muhsin Al Qasim</item>
+        <item>Mustafa Ismail</item>
+        <item>Nasser Alqatami</item>
+        <item>Sahl Yassin</item>
+        <item>Salaah AbdulRahman Bukhatir</item>
+        <item>Salah Al Budair</item>
+        <item>Saood ash-Shuraym</item>
+        <item>Yaser Salamah</item>
+        <item>Yasser Ad-Dussary</item>
+    </string-array>
+    <string-array name="reciters_en">
+        <item>Nasser Al Qatami</item>
+        <item>Yasser Al Dosari</item>
+    </string-array>
+    <string-array name="seekbar_fps">
+        <item>15</item>
+        <item>25</item>
+        <item>30</item>
+        <item>50</item>
+        <item>60</item>
+    </string-array>
+    <string-array name="seekbar_resolution">
+        <item>480p</item>
+        <item>720p</item>
+        <item>1080p</item>
+    </string-array>
+    <string-array name="sura_names">
+        <item>الفاتحة</item>
+        <item>البقرة</item>
+        <item>آل عمران</item>
+        <item>النساء</item>
+        <item>المائدة</item>
+        <item>الأنعام</item>
+        <item>الأعراف</item>
+        <item>الأنفال</item>
+        <item>التوبة</item>
+        <item>يونس</item>
+        <item>هود</item>
+        <item>يوسف</item>
+        <item>الرعد</item>
+        <item>إبراهيم</item>
+        <item>الحجر</item>
+        <item>النحل</item>
+        <item>الإسراء</item>
+        <item>الكهف</item>
+        <item>مريم</item>
+        <item>طه</item>
+        <item>الأنبياء</item>
+        <item>الحج</item>
+        <item>المؤمنون</item>
+        <item>النور</item>
+        <item>الفرقان</item>
+        <item>الشعراء</item>
+        <item>النمل</item>
+        <item>القصص</item>
+        <item>العنكبوت</item>
+        <item>الروم</item>
+        <item>لقمان</item>
+        <item>السجدة</item>
+        <item>الأحزاب</item>
+        <item>سبأ</item>
+        <item>فاطر</item>
+        <item>يس</item>
+        <item>الصافات</item>
+        <item>ص</item>
+        <item>الزمر</item>
+        <item>غافر</item>
+        <item>فصلت</item>
+        <item>الشورى</item>
+        <item>الزخرف</item>
+        <item>الدخان</item>
+        <item>الجاثية</item>
+        <item>الأحقاف</item>
+        <item>محمد</item>
+        <item>الفتح</item>
+        <item>الحجرات</item>
+        <item>ق</item>
+        <item>الذاريات</item>
+        <item>الطور</item>
+        <item>النجم</item>
+        <item>القمر</item>
+        <item>الرحمن</item>
+        <item>الواقعة</item>
+        <item>الحديد</item>
+        <item>المجادلة</item>
+        <item>الحشر</item>
+        <item>الممتحنة</item>
+        <item>الصف</item>
+        <item>الجمعة</item>
+        <item>المنافقون</item>
+        <item>التغابن</item>
+        <item>الطلاق</item>
+        <item>التحريم</item>
+        <item>الملك</item>
+        <item>القلم</item>
+        <item>الحاقة</item>
+        <item>المعارج</item>
+        <item>نوح</item>
+        <item>الجن</item>
+        <item>المزمل</item>
+        <item>المدثر</item>
+        <item>القيامة</item>
+        <item>الإنسان</item>
+        <item>المرسلات</item>
+        <item>النبأ</item>
+        <item>النازعات</item>
+        <item>عبس</item>
+        <item>التكوير</item>
+        <item>الانفطار</item>
+        <item>المطففين</item>
+        <item>الانشقاق</item>
+        <item>البروج</item>
+        <item>الطارق</item>
+        <item>الأعلى</item>
+        <item>الغاشية</item>
+        <item>الفجر</item>
+        <item>البلد</item>
+        <item>الشمس</item>
+        <item>الليل</item>
+        <item>الضحى</item>
+        <item>الشرح</item>
+        <item>التين</item>
+        <item>العلق</item>
+        <item>القدر</item>
+        <item>البينة</item>
+        <item>الزلزلة</item>
+        <item>العاديات</item>
+        <item>القارعة</item>
+        <item>التكاثر</item>
+        <item>العصر</item>
+        <item>الهمزة</item>
+        <item>الفيل</item>
+        <item>قريش</item>
+        <item>الماعون</item>
+        <item>الكوثر</item>
+        <item>الكافرون</item>
+        <item>النصر</item>
+        <item>المسد</item>
+        <item>الإخلاص</item>
+        <item>الفلق</item>
+        <item>الناس</item>
+    </string-array>
+    <integer-array name="surah_count">
+        <item>7</item>
+        <item>286</item>
+        <item>200</item>
+        <item>176</item>
+        <item>120</item>
+        <item>165</item>
+        <item>206</item>
+        <item>75</item>
+        <item>129</item>
+        <item>109</item>
+        <item>123</item>
+        <item>111</item>
+        <item>43</item>
+        <item>52</item>
+        <item>99</item>
+        <item>128</item>
+        <item>111</item>
+        <item>110</item>
+        <item>98</item>
+        <item>135</item>
+        <item>112</item>
+        <item>78</item>
+        <item>118</item>
+        <item>64</item>
+        <item>77</item>
+        <item>227</item>
+        <item>93</item>
+        <item>88</item>
+        <item>69</item>
+        <item>60</item>
+        <item>34</item>
+        <item>30</item>
+        <item>73</item>
+        <item>54</item>
+        <item>45</item>
+        <item>83</item>
+        <item>182</item>
+        <item>88</item>
+        <item>75</item>
+        <item>85</item>
+        <item>54</item>
+        <item>53</item>
+        <item>89</item>
+        <item>59</item>
+        <item>37</item>
+        <item>35</item>
+        <item>38</item>
+        <item>29</item>
+        <item>18</item>
+        <item>45</item>
+        <item>60</item>
+        <item>49</item>
+        <item>62</item>
+        <item>55</item>
+        <item>78</item>
+        <item>96</item>
+        <item>29</item>
+        <item>22</item>
+        <item>24</item>
+        <item>13</item>
+        <item>14</item>
+        <item>11</item>
+        <item>11</item>
+        <item>18</item>
+        <item>12</item>
+        <item>12</item>
+        <item>30</item>
+        <item>52</item>
+        <item>52</item>
+        <item>44</item>
+        <item>28</item>
+        <item>28</item>
+        <item>20</item>
+        <item>56</item>
+        <item>40</item>
+        <item>31</item>
+        <item>50</item>
+        <item>40</item>
+        <item>46</item>
+        <item>42</item>
+        <item>29</item>
+        <item>19</item>
+        <item>36</item>
+        <item>25</item>
+        <item>22</item>
+        <item>17</item>
+        <item>19</item>
+        <item>26</item>
+        <item>30</item>
+        <item>20</item>
+        <item>15</item>
+        <item>21</item>
+        <item>11</item>
+        <item>8</item>
+        <item>8</item>
+        <item>19</item>
+        <item>5</item>
+        <item>8</item>
+        <item>8</item>
+        <item>11</item>
+        <item>11</item>
+        <item>8</item>
+        <item>3</item>
+        <item>9</item>
+        <item>5</item>
+        <item>4</item>
+        <item>7</item>
+        <item>3</item>
+        <item>6</item>
+        <item>3</item>
+        <item>5</item>
+        <item>4</item>
+        <item>5</item>
+        <item>6</item>
+    </integer-array>
+    <string-array name="surah_names_english">
+        <item>Al-Fatiha</item>
+        <item>Al-Baqara</item>
+        <item>Aal-e-Imran</item>
+        <item>An-Nisa</item>
+        <item>Al-Maeda</item>
+        <item>Al-Anaam</item>
+        <item>Al-Araf</item>
+        <item>Al-Anfal</item>
+        <item>At-Taubah</item>
+        <item>Yunus</item>
+        <item>Hud</item>
+        <item>Yusuf</item>
+        <item>Ar-Rad</item>
+        <item>Ibrahim</item>
+        <item>Al-Hijr</item>
+        <item>An-Nahl</item>
+        <item>Al-Isra</item>
+        <item>Al-Kahf</item>
+        <item>Maryam</item>
+        <item>Taha</item>
+        <item>Al-Anbiya</item>
+        <item>Al-Hajj</item>
+        <item>Al-Mumenoon</item>
+        <item>An-Noor</item>
+        <item>Al-Furqan</item>
+        <item>Ash-Shuara</item>
+        <item>An-Naml</item>
+        <item>Al-Qasas</item>
+        <item>Al-Ankaboot</item>
+        <item>Ar-Room</item>
+        <item>Luqman</item>
+        <item>As-Sajda</item>
+        <item>Al-Ahzab</item>
+        <item>Saba</item>
+        <item>Fatir</item>
+        <item>Ya Seen</item>
+        <item>As-Saaffat</item>
+        <item>Sad</item>
+        <item>Az-Zumar</item>
+        <item>Ghafir</item>
+        <item>Fussilat</item>
+        <item>Ash-Shura</item>
+        <item>Az-Zukhruf</item>
+        <item>Ad-Dukhan</item>
+        <item>Al-Jathiya</item>
+        <item>Al-Ahqaf</item>
+        <item>Muhammad</item>
+        <item>Al-Fath</item>
+        <item>Al-Hujraat</item>
+        <item>Qaf</item>
+        <item>Adh-Dhariyat</item>
+        <item>At-tur</item>
+        <item>An-Najm</item>
+        <item>Al-Qamar</item>
+        <item>Al-Rahman</item>
+        <item>Al-Waqia</item>
+        <item>Al-Hadid</item>
+        <item>Al-Mujadila</item>
+        <item>Al-Hashr</item>
+        <item>Al-Mumtahina</item>
+        <item>As-Saff</item>
+        <item>Al-Jumua</item>
+        <item>Al-Munafiqoon</item>
+        <item>At-Taghabun</item>
+        <item>At-Talaq</item>
+        <item>At-Tahrim</item>
+        <item>Al-Mulk</item>
+        <item>Al-Qalam</item>
+        <item>Al-Haaqqa</item>
+        <item>Al-Maarij</item>
+        <item>Nooh</item>
+        <item>Al-Jinn</item>
+        <item>Al-Muzzammil</item>
+        <item>Al-Muddathir</item>
+        <item>Al-Qiyama</item>
+        <item>Al-Insan</item>
+        <item>Al-Mursalat</item>
+        <item>An-Naba</item>
+        <item>An-Naziat</item>
+        <item>Abasa</item>
+        <item>At-Takwir</item>
+        <item>AL-Infitar</item>
+        <item>Al-Mutaffifin</item>
+        <item>Al-Inshiqaq</item>
+        <item>Al-Burooj</item>
+        <item>At-Tariq</item>
+        <item>Al-Ala</item>
+        <item>Al-Ghashiya</item>
+        <item>Al-Fajr</item>
+        <item>Al-Balad</item>
+        <item>Ash-Shams</item>
+        <item>Al-Lail</item>
+        <item>Ad-Dhuha</item>
+        <item>Al-Inshirah</item>
+        <item>At-Tin</item>
+        <item>Al-Alaq</item>
+        <item>Al-Qadr</item>
+        <item>Al-Bayyina</item>
+        <item>Al-Zalzala</item>
+        <item>Al-Adiyat</item>
+        <item>Al-Qaria</item>
+        <item>At-Takathur</item>
+        <item>Al-Asr</item>
+        <item>Al-Humaza</item>
+        <item>Al-fil</item>
+        <item>Quraish</item>
+        <item>Al-Maun</item>
+        <item>Al-Kauther</item>
+        <item>Al-Kafiroon</item>
+        <item>An-Nasr</item>
+        <item>Al-Masadd</item>
+        <item>Al-Ikhlas</item>
+        <item>Al-Falaq</item>
+        <item>An-Nas</item>
+    </string-array>
+    <string-array name="surah_names_merged">
+        <item>الفاتحة - Al-Fatiha</item>
+        <item>البقرة - Al-Baqara</item>
+        <item>آل عمران - Aal-e-Imran</item>
+        <item>النساء - An-Nisa</item>
+        <item>المائدة - Al-Maeda</item>
+        <item>الأنعام - Al-Anaam</item>
+        <item>الأعراف - Al-Araf</item>
+        <item>الأنفال - Al-Anfal</item>
+        <item>التوبة - At-Taubah</item>
+        <item>يونس - Yunus</item>
+        <item>هود - Hud</item>
+        <item>يوسف - Yusuf</item>
+        <item>الرعد - Ar-Rad</item>
+        <item>إبراهيم - Ibrahim</item>
+        <item>الحجر - Al-Hijr</item>
+        <item>النحل - An-Nahl</item>
+        <item>الإسراء - Al-Isra</item>
+        <item>الكهف - Al-Kahf</item>
+        <item>مريم - Maryam</item>
+        <item>طه - Taha</item>
+        <item>الأنبياء - Al-Anbiya</item>
+        <item>الحج - Al-Hajj</item>
+        <item>المؤمنون - Al-Mumenoon</item>
+        <item>النور - An-Noor</item>
+        <item>الفرقان - Al-Furqan</item>
+        <item>الشعراء - Ash-Shuara</item>
+        <item>النمل - An-Naml</item>
+        <item>القصص - Al-Qasas</item>
+        <item>العنكبوت - Al-Ankaboot</item>
+        <item>الروم - Ar-Room</item>
+        <item>لقمان - Luqman</item>
+        <item>السجدة - As-Sajda</item>
+        <item>الأحزاب - Al-Ahzab</item>
+        <item>سبأ - Saba</item>
+        <item>فاطر - Fatir</item>
+        <item>يس - Ya Seen</item>
+        <item>الصافات - As-Saaffat</item>
+        <item>ص - Sad</item>
+        <item>الزمر - Az-Zumar</item>
+        <item>غافر - Ghafir</item>
+        <item>فصلت - Fussilat</item>
+        <item>الشورى - Ash-Shura</item>
+        <item>الزخرف - Az-Zukhruf</item>
+        <item>الدخان - Ad-Dukhan</item>
+        <item>الجاثية - Al-Jathiya</item>
+        <item>الأحقاف - Al-Ahqaf</item>
+        <item>محمد - Muhammad</item>
+        <item>الفتح - Al-Fath</item>
+        <item>الحجرات - Al-Hujraat</item>
+        <item>ق - Qaf</item>
+        <item>الذاريات - Adh-Dhariyat</item>
+        <item>الطور - At-tur</item>
+        <item>النجم - An-Najm</item>
+        <item>القمر - Al-Qamar</item>
+        <item>الرحمن - Al-Rahman</item>
+        <item>الواقعة - Al-Waqia</item>
+        <item>الحديد - Al-Hadid</item>
+        <item>المجادلة - Al-Mujadila</item>
+        <item>الحشر - Al-Hashr</item>
+        <item>الممتحنة - Al-Mumtahina</item>
+        <item>الصف - As-Saff</item>
+        <item>الجمعة - Al-Jumua</item>
+        <item>المنافقون - Al-Munafiqoon</item>
+        <item>التغابن - At-Taghabun</item>
+        <item>الطلاق - At-Talaq</item>
+        <item>التحريم - At-Tahrim</item>
+        <item>الملك - Al-Mulk</item>
+        <item>القلم - Al-Qalam</item>
+        <item>الحاقة - Al-Haaqqa</item>
+        <item>المعارج - Al-Maarij</item>
+        <item>نوح - Nooh</item>
+        <item>الجن - Al-Jinn</item>
+        <item>المزمل - Al-Muzzammil</item>
+        <item>المدثر - Al-Muddathir</item>
+        <item>القيامة - Al-Qiyama</item>
+        <item>الإنسان - Al-Insan</item>
+        <item>المرسلات - Al-Mursalat</item>
+        <item>النبأ - An-Naba</item>
+        <item>النازعات - An-Naziat</item>
+        <item>عبس - Abasa</item>
+        <item>التكوير - At-Takwir</item>
+        <item>الانفطار - AL-Infitar</item>
+        <item>المطففين - Al-Mutaffifin</item>
+        <item>الانشقاق - Al-Inshiqaq</item>
+        <item>البروج - Al-Burooj</item>
+        <item>الطارق - At-Tariq</item>
+        <item>الأعلى - Al-Ala</item>
+        <item>الغاشية - Al-Ghashiya</item>
+        <item>الفجر - Al-Fajr</item>
+        <item>البلد - Al-Balad</item>
+        <item>الشمس - Ash-Shams</item>
+        <item>الليل - Al-Lail</item>
+        <item>الضحى - Ad-Dhuha</item>
+        <item>الشرح - Al-Inshirah</item>
+        <item>التين - At-Tin</item>
+        <item>العلق - Al-Alaq</item>
+        <item>القدر - Al-Qadr</item>
+        <item>البينة - Al-Bayyina</item>
+        <item>الزلزلة - Al-Zalzala</item>
+        <item>العاديات - Al-Adiyat</item>
+        <item>القارعة - Al-Qaria</item>
+        <item>التكاثر - At-Takathur</item>
+        <item>العصر - Al-Asr</item>
+        <item>الهمزة - Al-Humaza</item>
+        <item>الفيل - Al-fil</item>
+        <item>قريش - Quraish</item>
+        <item>الماعون - Al-Maun</item>
+        <item>الكوثر - Al-Kauther</item>
+        <item>الكافرون - Al-Kafiroon</item>
+        <item>النصر - An-Nasr</item>
+        <item>المسد - Al-Masadd</item>
+        <item>الإخلاص - Al-Ikhlas</item>
+        <item>الفلق - Al-Falaq</item>
+        <item>الناس - An-Nas</item>
+    </string-array>
+    <string-array name="translation_name">
+        <item>Without translation</item>
+        <item>English-Hilali &amp; Khan</item>
+        <item>French - Hamidullah</item>
+        <item>Urud</item>
+        <item>Turkish</item>
+        <item>German - Bubenheim &amp; Elyas</item>
+        <item>Indonesian - Bahasa Indonesia</item>
+        <item>Persian - Mohammad Mahdi Fooladvand</item>
+        <item>Bengali - Muhiuddin Khan</item>
+    </string-array>
+    <string-array name="translation_name_l">
+        <item>Without translation</item>
+        <item>تفسير الميسر</item>
+        <item>English</item>
+        <item>French</item>
+        <item>Bangali</item>
+        <item>Urud</item>
+        <item>Persian</item>
+        <item>Hindi</item>
+        <item>Tamil</item>
+        <item>Ingush</item>
+        <item>Turkish</item>
+        <item>Indonesian</item>
+    </string-array>
+</resources>

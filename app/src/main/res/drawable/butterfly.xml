@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector android:height="70.0dip" android:width="70.0dip" android:viewportWidth="100.0" android:viewportHeight="100.0"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <group>
+        <path android:name="gradient_fill" android:fillColor="#ffff69b4" android:pathData="M0,0 L100,0 L100,100 L0,100 Z" android:strokeWidth="0.0">
+            <gradient android:startColor="#ffff69b4" android:endColor="#ffffc0cb" android:angle="45.0" android:type="linear" />
+        </path>
+        <path android:name="left_wing" android:fillColor="#ffffffff" android:pathData="M50,50 C10,10 10,90 50,50" android:fillType="evenOdd" />
+        <path android:name="right_wing" android:fillColor="#ffffffff" android:pathData="M50,50 C90,10 90,90 50,50" android:fillType="evenOdd" />
+    </group>
+</vector>

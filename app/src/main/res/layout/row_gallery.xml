@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout android:focusable="true" android:clickable="true" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_margin="1.5dip"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <hazem.nurmontage.videoquran.views.image.SquareImageView android:layout_gravity="center" android:id="@+id/img" android:focusable="false" android:clickable="false" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+    <hazem.nurmontage.videoquran.views.TextCustumFont android:textSize="12.0sp" android:textColor="@color/white" android:layout_gravity="bottom" android:id="@+id/tv_time" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_margin="5.0dip" android:shadowColor="#ff000000" android:shadowRadius="5.0" />
+    <ImageButton android:layout_gravity="end|center|top" android:id="@+id/btn_deleted" android:background="@drawable/round_btn_quran" android:padding="4.0dip" android:visibility="gone" android:layout_width="18.0dip" android:layout_height="18.0dip" android:src="@drawable/close_24px" android:scaleType="centerInside" android:shadowColor="#ff000000" android:shadowRadius="5.0" app:tint="#ffffffff" />
+</FrameLayout>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content">
+
+    <!-- Gradient angle editor (initially hidden until a gradient is selected) -->
+    <include
+        android:id="@+id/layout_edit_gradient"
+        android:visibility="gone"
+        layout="@layout/layout_edit_gradient" />
+
+    <!-- Horizontal RecyclerView of gradient presets -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_color"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="20dp" />
+</LinearLayout>

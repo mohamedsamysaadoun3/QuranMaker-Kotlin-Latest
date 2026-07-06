@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:id="@+id/main" android:background="@drawable/bg_blue_gradient" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <RelativeLayout android:id="@+id/toolbar" android:paddingTop="8.0dip" android:paddingBottom="8.0dip" android:layout_width="fill_parent" android:layout_height="wrap_content">
+        <ImageButton android:id="@+id/btn_on_back" android:background="@drawable/round_btn_quran" android:padding="12.0dip" android:layout_width="40.0dip" android:layout_height="40.0dip" android:layout_marginLeft="10.0dip" android:src="@drawable/btn_on_back" android:scaleType="centerInside" android:layout_alignParentLeft="true" android:layout_centerInParent="true" android:layout_marginStart="10.0dip" android:layout_alignParentStart="true" app:tint="#ffffffff" />
+        <include android:id="@+id/layoutHelpWhatsapp" layout="@layout/layout_help_whatsapp" />
+    </RelativeLayout>
+    <androidx.recyclerview.widget.RecyclerView android:id="@+id/rv" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_margin="8.0dip" />
+</LinearLayout>

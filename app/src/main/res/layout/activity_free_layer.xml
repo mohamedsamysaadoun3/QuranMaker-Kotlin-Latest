@@ -1,0 +1,229 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:id="@+id/main"
+    android:background="@color/studio"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <!-- ── Top toolbar ── -->
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageButton
+                android:id="@+id/btn_cancel"
+                android:background="@drawable/round_btn_quran"
+                android:padding="12dp"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_margin="5dp"
+                android:src="@drawable/btn_on_back"
+                android:scaleType="centerInside"
+                android:layout_centerInParent="true"
+                android:layout_alignParentStart="true"
+                app:tint="#ffffffff" />
+
+            <hazem.nurmontage.videoquran.views.ButtonCustumFont
+                android:id="@+id/btn_done"
+                android:textSize="12sp"
+                android:textColor="#ffffffff"
+                android:layout_gravity="end"
+                android:background="@drawable/btn_export_state"
+                android:layout_width="wrap_content"
+                android:layout_height="35dp"
+                android:layout_margin="5dp"
+                android:text="@string/done"
+                android:layout_centerInParent="true"
+                android:textAllCaps="false"
+                android:layout_alignParentEnd="true" />
+
+            <hazem.nurmontage.videoquran.views.TextCustumFont
+                android:textColor="@color/white"
+                android:id="@+id/tv_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/free_layer"
+                android:layout_centerInParent="true" />
+        </RelativeLayout>
+
+        <!-- ── Canvas area for free-layer overlay ── -->
+        <FrameLayout
+            android:id="@+id/canvas_container"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1">
+
+            <ImageView
+                android:id="@+id/iv_background"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scaleType="centerCrop" />
+
+            <hazem.nurmontage.videoquran.views.CropView
+                android:id="@+id/free_layer_canvas"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+        </FrameLayout>
+
+        <!-- ── Bottom action bar ── -->
+        <LinearLayout
+            android:gravity="center"
+            android:layout_gravity="center"
+            android:id="@+id/layout_menu"
+            android:background="@drawable/top_line_bg"
+            android:padding="3dp"
+            android:focusable="false"
+            android:clickable="false"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:gravity="center"
+                android:orientation="vertical"
+                android:id="@+id/btn_add_image"
+                android:background="@drawable/item_menu_focus"
+                android:focusable="true"
+                android:clickable="true"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="4dp"
+                android:layout_weight="1"
+                android:paddingStart="5dp"
+                android:paddingEnd="5dp">
+                <ImageView
+                    android:focusable="false"
+                    android:clickable="false"
+                    android:layout_width="@dimen/menu_size"
+                    android:layout_height="@dimen/menu_size"
+                    android:src="@drawable/image_24px"
+                    android:scaleType="centerInside"
+                    app:tint="#ffd3d3d3" />
+                <hazem.nurmontage.videoquran.views.TextCustumFont
+                    android:textSize="@dimen/menu_text_size"
+                    android:textColor="#ffd3d3d3"
+                    android:layout_gravity="center"
+                    android:focusable="false"
+                    android:clickable="false"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/menu_item_margin"
+                    android:text="@string/image" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:gravity="center"
+                android:orientation="vertical"
+                android:id="@+id/btn_add_text"
+                android:background="@drawable/item_menu_focus"
+                android:focusable="true"
+                android:clickable="true"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="4dp"
+                android:layout_weight="1"
+                android:paddingStart="5dp"
+                android:paddingEnd="5dp">
+                <ImageView
+                    android:focusable="false"
+                    android:clickable="false"
+                    android:layout_width="@dimen/menu_size"
+                    android:layout_height="@dimen/menu_size"
+                    android:src="@drawable/text_fields_24px"
+                    android:scaleType="centerInside"
+                    app:tint="#ffd3d3d3" />
+                <hazem.nurmontage.videoquran.views.TextCustumFont
+                    android:textSize="@dimen/menu_text_size"
+                    android:textColor="#ffd3d3d3"
+                    android:layout_gravity="center"
+                    android:focusable="false"
+                    android:clickable="false"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/menu_item_margin"
+                    android:text="@string/text" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:gravity="center"
+                android:orientation="vertical"
+                android:id="@+id/btn_change_bg"
+                android:background="@drawable/item_menu_focus"
+                android:focusable="true"
+                android:clickable="true"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="4dp"
+                android:layout_weight="1"
+                android:paddingStart="5dp"
+                android:paddingEnd="5dp">
+                <ImageView
+                    android:padding="4dp"
+                    android:focusable="false"
+                    android:clickable="false"
+                    android:layout_width="@dimen/menu_size"
+                    android:layout_height="@dimen/menu_size"
+                    android:src="@drawable/image_24px"
+                    android:scaleType="centerInside"
+                    app:tint="#ffd3d3d3" />
+                <hazem.nurmontage.videoquran.views.TextCustumFont
+                    android:textSize="@dimen/menu_text_size"
+                    android:textColor="#ffd3d3d3"
+                    android:layout_gravity="center"
+                    android:id="@+id/tv_bg"
+                    android:focusable="false"
+                    android:clickable="false"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/menu_item_margin"
+                    android:text="@string/bg" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:gravity="center"
+                android:orientation="vertical"
+                android:id="@+id/btn_delete"
+                android:background="@drawable/item_menu_focus"
+                android:focusable="true"
+                android:clickable="true"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="4dp"
+                android:layout_weight="1"
+                android:paddingStart="5dp"
+                android:paddingEnd="5dp">
+                <ImageView
+                    android:focusable="false"
+                    android:clickable="false"
+                    android:layout_width="@dimen/menu_size"
+                    android:layout_height="@dimen/menu_size"
+                    android:src="@drawable/delete_24px"
+                    android:scaleType="centerInside"
+                    app:tint="#ffd3d3d3" />
+                <hazem.nurmontage.videoquran.views.TextCustumFont
+                    android:textSize="@dimen/menu_text_size"
+                    android:textColor="#ffd3d3d3"
+                    android:layout_gravity="center"
+                    android:focusable="false"
+                    android:clickable="false"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/menu_item_margin"
+                    android:text="@string/delete" />
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+
+    <FrameLayout
+        android:layout_gravity="bottom"
+        android:id="@+id/m_container"
+        android:background="#00000000"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+</FrameLayout>

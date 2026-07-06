@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:gravity="center" android:orientation="horizontal" android:background="@drawable/bg_purchace" android:paddingTop="5.0dip" android:paddingBottom="5.0dip" android:focusable="true" android:clickable="true" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_alignParentBottom="true" android:layout_centerInParent="true" android:paddingStart="7.0dip" android:paddingEnd="7.0dip"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <hazem.nurmontage.videoquran.views.TextCustumFont android:textSize="11.0sp" android:textColor="@color/white" android:id="@+id/tv_unlock" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="3.0dip" android:layout_marginBottom="3.0dip" android:text="إزالة العلامة المائية" android:layout_marginStart="8.0dip" android:layout_marginEnd="3.0dip" />
+    <ImageView android:layout_gravity="center" android:focusable="false" android:clickable="false" android:layout_width="20.0dip" android:layout_height="20.0dip" android:layout_marginTop="3.0dip" android:layout_marginBottom="3.0dip" android:src="@drawable/crown_24px" android:scaleType="centerInside" android:layout_marginStart="3.0dip" android:layout_marginEnd="3.0dip" />
+</LinearLayout>

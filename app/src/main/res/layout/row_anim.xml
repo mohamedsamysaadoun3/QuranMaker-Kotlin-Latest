@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:focusable="true" android:clickable="true" android:layout_width="48.0dip" android:layout_height="48.0dip" android:layout_margin="5.0dip"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <ImageView android:id="@+id/anim_item" android:background="@drawable/circle_item_menu" android:padding="12.0dip" android:focusable="false" android:clickable="false" android:layout_width="48.0dip" android:layout_height="48.0dip" android:scaleType="centerInside" app:tint="@color/white" />
+    <ImageView android:id="@+id/iv_disable" android:background="@drawable/ic_data_premium" android:focusable="false" android:visibility="gone" android:clickable="false" android:layout_width="18.0dip" android:layout_height="18.0dip" android:layout_centerInParent="true" />
+</RelativeLayout>

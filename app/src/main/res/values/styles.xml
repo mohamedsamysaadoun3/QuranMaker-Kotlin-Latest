@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- ═══════════════════════════════════════════ -->
+    <!-- App Theme - NurMontage                     -->
+    <!-- ═══════════════════════════════════════════ -->
+
+    <style name="Base.Theme.NurMontage" parent="Theme.Material3.Light.NoActionBar" />
+
+    <style name="Theme.NurMontage" parent="Base.Theme.NurMontage" />
+
+    <!-- ⚠️ INVENTED — not in NurMontage Java reference -->
+    <style name="Theme.NurMontage.Fullscreen" parent="Theme.NurMontage">
+        <item name="android:windowBackground">@null</item>
+        <item name="android:actionBarStyle">@style/Widget.Theme.NurMontage.ActionBar.Fullscreen</item>
+        <item name="android:windowActionBarOverlay">true</item>
+    </style>
+
+    <style name="Theme.NurMontage.Starting" parent="Theme.SplashScreen">
+        <item name="postSplashScreenTheme">@style/Theme.NurMontage</item>
+        <item name="windowSplashScreenAnimatedIcon">@drawable/nurmontage_splach</item>
+        <item name="windowSplashScreenBackground">@color/white</item>
+    </style>
+
+    <!-- ═══════════════════════════════════════════ -->
+    <!-- Theme Overlays                             -->
+    <!-- ═══════════════════════════════════════════ -->
+
+    <!-- ⚠️ INVENTED — not in NurMontage Java reference -->
+    <style name="ThemeOverlay.NurMontage.FullscreenContainer" parent="">
+        <item name="fullscreenBackgroundColor">@color/light_blue_600</item>
+        <item name="fullscreenTextColor">@color/light_blue_A200</item>
+    </style>
+
+    <!-- ═══════════════════════════════════════════ -->
+    <!-- Custom Widgets                             -->
+    <!-- ═══════════════════════════════════════════ -->
+
+    <!-- ⚠️ INVENTED — not in NurMontage Java reference -->
+    <style name="CustomSeekBarStyle" parent="Widget.AppCompat.SeekBar">
+        <item name="android:maxHeight">4.0dip</item>
+        <item name="android:progressDrawable">@drawable/custom_track</item>
+        <item name="android:thumb">@drawable/custom_thumb</item>
+    </style>
+
+    <style name="AyaPresetButton">
+        <item name="android:textSize">12.0sp</item>
+        <item name="android:textColor">#ffffffff</item>
+        <item name="android:gravity">center</item>
+        <item name="android:background">@drawable/bg_preset_btn</item>
+        <item name="android:focusable">true</item>
+        <item name="android:clickable">true</item>
+        <item name="android:layout_width">72.0dip</item>
+        <item name="android:layout_height">36.0dip</item>
+        <item name="android:layout_marginEnd">6.0dip</item>
+    </style>
+
+    <style name="Widget.Theme.NurMontage.ActionBar.Fullscreen" parent="Widget.AppCompat.ActionBar">
+        <item name="android:background">@color/black_overlay</item>
+    </style>
+
+    <style name="Widget.Theme.NurMontage.ButtonBar.Fullscreen" parent="">
+        <item name="android:background">@color/black_overlay</item>
+        <item name="android:buttonBarStyle">?android:buttonBarStyle</item>
+    </style>
+
+    <!-- Fullscreen Theme for Progress View -->
+    <style name="Theme.App.Fullscreen" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <item name="android:windowActionBar">false</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowFullscreen">true</item>
+        <item name="android:windowTranslucentNavigation">false</item>
+        <item name="android:windowTranslucentStatus">false</item>
+        <item name="android:windowContentOverlay">@null</item>
+    </style>
+
+    <!-- Video Player Theme (FIXED to match NurMontage Java reference) -->
+    <style name="App.VideoPlayer" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <item name="android:windowFullscreen">true</item>
+        <item name="android:windowTranslucentStatus">true</item>
+        <item name="android:windowTranslucentNavigation">true</item>
+        <item name="android:statusBarColor">@android:color/transparent</item>
+        <item name="android:navigationBarColor">@android:color/transparent</item>
+    </style>
+
+    <!-- ═══════════════════════════════════════════ -->
+    <!-- PlayCore Transparent Theme                 -->
+    <!-- ═══════════════════════════════════════════ -->
+
+    <style name="Theme.PlayCore.Transparent" parent="@android:style/Theme">
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowIsFloating">true</item>
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowContentOverlay">@null</item>
+        <item name="android:backgroundDimEnabled">false</item>
+    </style>
+
+</resources>
